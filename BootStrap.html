@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Tech Conference Registration</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    
+    <style>
+        body {
+            font-family: 'Helvetica Neue', sans-serif;
+            background-color: #f4f4f4;
+        }
+        .header {
+            background-color: #212529;
+            padding: 60px 0;
+            text-align: center;
+        }
+        .header h2 {
+            color: #f8f9fa;
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+        .header p {
+            color: #f8f9fa;
+            font-size: 18px;
+        }
+        .section {
+            background-color: #f8f9fa;
+            padding: 40px 0;
+        }
+        .section-heading {
+            font-size: 28px;
+            margin-bottom: 30px;
+            color: #343a40;
+            text-align: center;
+        }
+        .table-responsive {
+            border: none;
+        }
+        .table {
+            border: 1px solid #dee2e6;
+            background-color: #fff;
+        }
+        .table th,
+        .table td {
+            border: none;
+        }
+        .table-hover tbody tr:hover {
+            background-color: #f2f2f2;
+            background-color: #ddd;
+        }
+        .register-form {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        .register-form h3 {
+            font-size: 24px;
+            color: #343a40;
+            margin-bottom: 15px;
+        }
+        .form-control {
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+        }
+        .btn-register {
+            background-color: #007BFF;
+            border-color: #007BFF;
+            color: #f8f9fa;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 18px;
+        }
+        .btn-register:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+        .footer {
+            background-color: #212529;
+            padding: 40px 0;
+            color: #f8f9fa;
+            text-align: center;
+        }
+        
+        /* Custom styles for side-by-side layout */
+        .side-by-side {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .conference-table {
+            width: calc(50% - 15px);
+            margin-right: 15px;
+            padding-right: 15px;
+        }
+        .registration-form-container {
+            width: calc(50% - 15px);
+            margin-left: 15px;
+            padding-left: 15px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <img src="images/bjit_image.png" alt="Event Logo" class="img-fluid" style="border-radius: 50%;">
+    <h2>Welcome to Tech Conference 2023</h2>
+    <p>Join us for a day of innovation and learning!</p>
+</div>
+
+<div class="container section">
+    <div class="row">
+        <div class="col-md-12">
+            <h2 class="section-heading">Conference Sessions</h2>
+            <div class="side-by-side">
+                <!-- Conference Table -->
+                <div class="conference-table">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Session Name</th>
+                                    <th>Speaker</th>
+                                    <th>Date</th>
+                                    <th>Time</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr data-toggle="modal" data-target="#sessionModal1">
+                                    <td>Session 1</td>
+                                    <td>Sarwar Miral</td>
+                                    <td>August 14, 2023</td>
+                                    <td>10:00 AM</td>
+                                </tr>
+                                <tr data-toggle="modal" data-target="#sessionModal2">
+                                    <td>Session 2</td>
+                                    <td>Saleehin Mohammad</td>
+                                    <td>August 14, 2023</td>
+                                    <td>2:00 PM</td>
+                                </tr>
+                                <tr data-toggle="modal" data-target="#sessionModal3">
+                                    <td>Session 3</td>
+                                    <td>Ujjal k. Saha</td>
+                                    <td>August 20, 2023</td>
+                                    <td>3:00 PM</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- Registration Form -->
+                <div class="registration-form-container">
+                    <div class="register-form">
+                        <h3>Register Now</h3>
+                        <form id="registrationForm">
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="name" placeholder="Your Name" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" class="form-control" id="email" placeholder="Your Email" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="organization" placeholder="Your Organization">
+                            </div>
+                            <div class="form-group">
+                                <select class="form-control" id="session">
+                                    <option value="">Select a Session</option>
+                                    <option value="session1">Session 1</option>
+                                    <option value="session2">Session 2</option>
+                                    <option value="session3">Session 3</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-register btn-block">Register</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Session 1 Modal -->
+<div class="modal fade" id="sessionModal1" tabindex="-1" role="dialog" aria-labelledby="sessionModal1Label" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="sessionModal1Label">Session 1 Details</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h4>Session 1: Understanding Modern Web Development</h4>
+                <p><strong>Speaker:</strong> Sarwar Miral</p>
+                <p><strong>Date:</strong> August 14, 2023</p>
+                <p><strong>Time:</strong> 10:00 AM</p>
+                <p>This session will cover the latest trends and technologies in web development, including...</p>
+                <h5>Speaker Bio</h5>
+                <p>Sarwar Miral is a seasoned web developer with over 10 years of experience...</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Register</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ... Similar code for Session 2 and Session 3 Modals ... -->
+<div class="modal fade" id="sessionModal2" tabindex="-1" role="dialog" aria-labelledby="sessionModal2Label" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="sessionModal2Label">Session 2 Details</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h4>Session 2: Advanced Machine Learning Techniques</h4>
+                <p><strong>Speaker:</strong> Saleehin Mohammad</p>
+                <p><strong>Date:</strong> August 14, 2023</p>
+                <p><strong>Time:</strong> 2:00 PM</p>
+                <p>This session will delve into advanced machine learning algorithms and their applications...</p>
+                <h5>Speaker Bio</h5>
+                <p>Saleehin Mohammad is a renowned data scientist and machine learning expert...</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Register</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Session 3 Modal -->
+<div class="modal fade" id="sessionModal3" tabindex="-1" role="dialog" aria-labelledby="sessionModal3Label" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="sessionModal3Label">Session 3 Details</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h4>Session 3: The Future of Technology</h4>
+                <p><strong>Speaker:</strong> Ujjal k. Saha</p>
+                <p><strong>Date:</strong> August 20, 2023</p>
+                <p><strong>Time:</strong> 3:00 PM</p>
+                <p>This session will explore emerging technologies and their potential impact on various industries...</p>
+                <h5>Speaker Bio</h5>
+                <p>Ujjal K. Saha is a visionary technologist and innovation strategist with a passion for...</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Register</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="successModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="successModalLabel">Registration Successful</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Thank you for registering! We look forward to seeing you at the event.
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <h4>Event Details</h4>
+                <p>Date: August 14, 2023</p>
+                <p>Location: BJIT ACADEMY</p>
+            </div>
+            <div class="col-md-4">
+                <h4>Contact Information</h4>
+                <p>Email: bjit@techconference.com</p>
+                <p>Phone: +8801823456700</p>
+            </div>
+            <div class="col-md-4">
+                <h4>Follow Us</h4>
+                <a href="#" class="btn btn-outline-primary btn-social"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="btn btn-outline-info btn-social"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="btn btn-outline-danger btn-social"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // Handle form submission and show success modal
+        $("#registrationForm").submit(function (event) {
+            event.preventDefault();
+            // Your registration logic here
+            // Show the success modal after registration
+            $("#successModal").modal("show");
+        });
+    });
+</script>
+
+</body>
+</html>
